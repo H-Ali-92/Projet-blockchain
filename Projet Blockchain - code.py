@@ -1,7 +1,7 @@
 from hashlib import sha256 #J'importe hashlib avec l'algorithme sha256 afin de pouvoir crypter les données de mes blocs
 from datetime import datetime #J'importe la date et l'heure
 
-#Cette fonction sert à calculer le hash de chacun de mes blocs et de le renvoyeren 64 termes hexadécimaux
+#Cette fonction sert à calculer le hash de chacun de mes blocs et de le renvoyer en 64 termes hexadécimaux
 def calculateHash(block):
     bloc = str(block.index) + str(block.previousHash) + str(block.timestamp) + str(block.produit) + str(block.origine) + str(block.traitements) + str(block.transport) + str(block.prix) + str(block.nonce)
     return(sha256(bloc.encode('utf-8')).hexdigest())
