@@ -32,13 +32,13 @@ class Block(object):
             self.nonce += 1
             self.hash = calculateHash(self)
 
-#Ma classe Blockchain qui va me permettre d'inplémenter la difficulté, de créer le bloc de génèse (le tout premier bloc de ma chaîne) afin de faire fonctionner correctement ma blockchain, de définir comment créer les nouveaux blocs de la chaîne, et enfin de vérifier si ma blockchain est valide
+#Ma classe Blockchain me permet d'inplémenter la difficulté, de créer le bloc de génèse (le tout premier bloc de ma chaîne) afin de faire fonctionner correctement ma blockchain, de définir comment créer les nouveaux blocs de la chaîne, et enfin de vérifier si ma blockchain est valide
 class Blockchain(object):
     def __init__(self, difficulty):
         self.difficulty = difficulty
         self.blocks = []
 
-        #Je défini mon bloc de génèse selon les caractéristiques suivantes : un index de "0", un préviousHash inexistant, la date et l'heure actuelle, et les données que j'ai arbitrairement laissé comme tel
+        #Je défini mon bloc de génèse selon les caractéristiques suivantes : un index de "0", un préviousHash inexistant, la date et l'heure actuelle, et les données que j'ai laissé comme tel
         genesisBlock = Block(0, None, datetime.now(), "genesis block", "origine", "traitements", "transport", "prix")
         genesisBlock.mineBlock(self.difficulty)
         self.blocks.append(genesisBlock)
