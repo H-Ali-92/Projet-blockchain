@@ -1,4 +1,4 @@
-from hashlib import sha256 #J'importe la librarire de hashlib avec l'algorithme sha256 afin de pouvoir crypter les données de mes blocs
+from hashlib import sha256 #J'importe hashlib avec l'algorithme sha256 afin de pouvoir crypter les données de mes blocs
 from datetime import datetime #J'importe la date et l'heure
 
 #Cette fonction sert à calculer le hash de chacun de mes blocs et de le retourner en 64 termes hexadécimaux
