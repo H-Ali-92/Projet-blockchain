@@ -1,4 +1,4 @@
-from hashlib import sha256 #Depuis la librairie d'algorithmes haslib, j'importe l'algorithme sha256 afin de pouvoir crypter les données de mes blocs
+from hashlib import sha256 #Depuis la librairie d'algorithmes hashlib, j'importe l'algorithme sha256 afin de pouvoir crypter les données de mes blocs
 from datetime import datetime #J'importe la date et l'heure
 
 #Cette fonction sert à calculer le hash de chacun de mes blocs
@@ -10,7 +10,7 @@ def calculateHash(block):
 def repeat(string, length):
     return(string * (int(length/len(string))+1))[:length]
 
-#Ma classe Block qui prend en compte l'index, le previousHash, le temps et toute la data
+#Ma classe Block qui prend en entrée l'index, le previousHash, le temps et toute la data
 class Block(object):
     def __init__(self, index, previousHash, timestamp, produit, origine, traitements, transport, prix):
         self.index = index
@@ -24,7 +24,7 @@ class Block(object):
         self.nonce = 0
         self.hash = calculateHash(self)
 
-    #cette fonction sert à déterminer le nonce de chaque bloc, c-à-d le nombre de tentatives de calcul de l'ordinateur avant de trouver un hash correspondant à la difficulté que l'on a mis
+    #Cette fonction sert à déterminer le nonce de chaque bloc, c-à-d le nombre de tentatives de calcul de l'ordinateur avant de trouver un hash correspondant à la difficulté que l'on a mis
     def mineBlock(self, difficulty):
         zeros = repeat("0", difficulty)
         self.nonce = 0
@@ -85,4 +85,4 @@ class Blockchain(object):
 
         return True
     
-#Work in progress
+#Work in progress...
