@@ -85,4 +85,19 @@ class Blockchain(object):
 
         return True
     
+        #La fonction isBlockchainValid permet de savoir si notre blockchain entière est valide. Pour cela, notre blockchain est valide si et seulement si : le premier bloc est valide et si tous ses blocs sont valides
+    def isBlockchainValid(self):
+        if not self.isFirstBlockValid():
+            return False
+
+        #Pour vérifier les blocs, il faut partir de l’index 1 et non 0, le premier bloc ne pouvant être validé par les mêmes conditions que les blocs suivants
+        #Cette boucle valide donc le premier bloc, puis boucle sur l’ensemble de la liste des blocs formant la blockchain afin de les valider un par un
+        for i in range(1, len(self.blocks)):
+            previousBlock = self.blocks[i-1]
+            block = self.blocks[i]
+            if not self.isValidBlock(block, previousBlock):
+                return False
+
+        return True
+    
 #Work in progress...
