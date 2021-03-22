@@ -100,4 +100,10 @@ class Blockchain(object):
 
         return True
     
+    #Cette fonction permet d'afficher ma blockchain
+    def display(self):
+        for block in self.blocks:
+            chain = "Block #"+str(block.index)+" ["+"\n\tindex: "+str(block.index)+"\n\tprevious hash: "+str(block.previousHash)+"\n\ttimestamp: "+str(block.timestamp)+"\n\tproduit: "+str(block.produit)+"\n\torigine: "+str(block.origine)+"\n\ttraitements: "+str(block.traitements)+"\n\ttransport: "+str(block.transport)+"\n\tprix: "+str(block.prix)+"\n\thash: "+str(block.hash)+"\n\tnonce: "+str(block.nonce)+"\n]\n"
+            print(str(chain))
+            
 #Work in progress...
