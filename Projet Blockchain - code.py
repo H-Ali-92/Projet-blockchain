@@ -109,13 +109,17 @@ class Blockchain(object):
 #Je défini la difficulté du minage (ici 4)
 bchain = Blockchain(4)
 
-#Je crée un bloc pour tester ma blockchain, pour cela je défini ses données (produit, origine, traitements, transport et prix)
-blockn1 = bchain.newBlock("Pommes", "France", "Aucun", "Camion", "1 euro")
+#Je crée deux blocs pour tester ma blockchain, pour cela je défini leurs données (produit, origine, traitements, transport et prix)
+blockn1 = bchain.newBlock("Pommes", "France", "Aucun", "Camion", "2,50 euros/kg")
 #Ensuite je mine ce bloc pour qu'il soit correctement inclu dans ma blockchain
 bchain.addBlock(blockn1)
+
+#Je fais de même pour le deuxième bloc
+blockn2 = bchain.newBlock("Ananas", "Guadeloupe", "Aucun", "Avion, Camion", "1,50 euros")
+bchain.addBlock(blockn2)
 
 #J'affiche la validité de ma blockchain pour savoir s'il y a une erreur quelque part
 print("Blockchain validity:", bchain.isBlockchainValid())
 
-#J'affcihe ma blockchain
+#J'affiche ma blockchain
 bchain.display()
