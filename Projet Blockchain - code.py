@@ -106,4 +106,16 @@ class Blockchain(object):
             chain = "Block #"+str(block.index)+" ["+"\n\tindex: "+str(block.index)+"\n\tprevious hash: "+str(block.previousHash)+"\n\ttimestamp: "+str(block.timestamp)+"\n\tproduit: "+str(block.produit)+"\n\torigine: "+str(block.origine)+"\n\ttraitements: "+str(block.traitements)+"\n\ttransport: "+str(block.transport)+"\n\tprix: "+str(block.prix)+"\n\thash: "+str(block.hash)+"\n\tnonce: "+str(block.nonce)+"\n]\n"
             print(str(chain))
             
-#Work in progress...
+#Je défini la difficulté du minage (ici 4)
+bchain = Blockchain(4)
+
+#Je crée un bloc pour tester ma blockchain, pour cela je défini ses données (produit, origine, traitements, transport et prix)
+blockn1 = bchain.newBlock("Pommes", "France", "Aucun", "Camion", "1 euro")
+#Ensuite je mine ce bloc pour qu'il soit correctement inclu dans ma blockchain
+bchain.addBlock(blockn1)
+
+#J'affiche la validité de ma blockchain pour savoir s'il y a une erreur quelque part
+print("Blockchain validity:", bchain.isBlockchainValid())
+
+#J'affcihe ma blockchain
+bchain.display()
