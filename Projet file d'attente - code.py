@@ -28,10 +28,10 @@ def calculateHash(block):
     return(sha256(bloc.encode('utf-8')).hexdigest())
 
 def repeat(string, length):
-    return(string * (int(length/len(string))+1))[:length]
+    return(string * length)
 
 
-class Block(object):
+class Block:
     def __init__(self, index, previousHash, timestamp, payeur, receveur, offre_du_payeur, offre_du_receveur, différence_de_place_dans_la_file, valeur_transaction):
         self.index = index
         self.previousHash = previousHash
@@ -53,7 +53,7 @@ class Block(object):
             self.hash = calculateHash(self)
 
 
-class Blockchain(object):
+class Blockchain:
     def __init__(self, difficulty):
         self.difficulty = difficulty
         self.blocks = []
@@ -107,7 +107,7 @@ class Blockchain(object):
 
         return True
 
-    def display(self):
+    def afficher(self):
         for block in self.blocks:
             chain = "Block #"+str(block.index)+" ["+"\n\tindex: "+str(block.index)+"\n\tprevious hash: "+str(block.previousHash)+"\n\ttimestamp: "+str(block.timestamp)+"\n\tpayeur: "+str(block.payeur)+"\n\treceveur: "+str(block.receveur)+"\n\toffre_du_payeur: "+str(block.offre_du_payeur)+"\n\toffre_du_receveur: "+str(block.offre_du_receveur)+"\n\tdifférence_de_place_dans_la_file: "+str(block.différence_de_place_dans_la_file)+"\n\tvaleur_transaction: "+str(block.valeur_transaction)+"\n\thash: "+str(block.hash)+"\n\tnonce: "+str(block.nonce)+"\n]\n"
             print(str(chain))
@@ -123,4 +123,4 @@ bchain.addBlock(blockn2)
 
 print("Blockchain validity:", bchain.isBlockchainValid())
 
-bchain.display()
+bchain.afficher()
